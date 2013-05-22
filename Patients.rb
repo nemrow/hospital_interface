@@ -19,7 +19,7 @@ class Patients
 
   def view_patient_list
     @patients.each do |patient|
-      p patient.display
+      puts patient.display
     end
   end
 

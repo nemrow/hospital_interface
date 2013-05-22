@@ -49,12 +49,31 @@ What would you like to do?\n
       when "2"
         puts "Employees\n#{'~'*80}"
         @employees.view_employees_list
-      when 3
+      when "3"
         puts 3
-      when 4
-        puts 4
+      when "4"
+        run_add_employee
       end
     end
+  end
+
+  def run_add_employee
+    puts "Add an employee!"
+    puts "~"*80+"\n"
+    puts "First Name?"
+    first_name_input = gets.chomp
+    puts "Last Name?"
+    last_name_input = gets.chomp
+    puts "Email Address?"
+    email_input = gets.chomp
+    puts "Password?"
+    password_input = gets.chomp
+    puts "Position?"
+    position_input = gets.chomp
+    @employees.add_new_employee(first_name_input, last_name_input, email_input, password_input, position_input)
+    puts "New Employee List"
+    puts "~"*80
+    @employees.view_employees_list
   end
 
   def create_hospital

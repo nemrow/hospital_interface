@@ -12,4 +12,8 @@ class Employee
   def display
     "Id: #{@id}, last name: #{@last_name}, first name: #{@first_name}, position: #{@position}"
   end
+
+  def to_a
+    [@id, @last_name, @first_name, @email, @password, @position]
+  end
 end

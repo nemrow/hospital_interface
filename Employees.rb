@@ -31,7 +31,23 @@ class Employees
     end
   end
 
+  def add_new_employee(last_name, first_name, email, password, position)
+    new_id = @employees.count + 1
+    @employees << Employee.new({:id => new_id, :last_name => last_name, :first_name => first_name, :email => email, :password => password, :position => position})
+    save_current_employees_to_file
+  end
+
+  def save_current_employees_to_file
+    CSV.open('employees.csv', 'w') do |csv|
+      @employees.each do |employee|
+        csv << employee.to_a
+      end
+    end
+  end
+
 end
 
 # test = Employees.new
+# test.save_current_employees_to_file
+# p test.view_employees_list
 # p test.find_employee_by_email("nemrowj@gmail.com")
