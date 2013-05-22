@@ -50,7 +50,7 @@ What would you like to do?\n
         puts "Employees\n#{'~'*80}"
         @employees.view_employees_list
       when "3"
-        puts 3
+        run_add_patient
       when "4"
         run_add_employee
       end
@@ -74,6 +74,23 @@ What would you like to do?\n
     puts "New Employee List"
     puts "~"*80
     @employees.view_employees_list
+  end
+
+  def run_add_patient
+    puts "Add an patient!"
+    puts "~"*80+"\n"
+    puts "First Name?"
+    first_name_input = gets.chomp
+    puts "Last Name?"
+    last_name_input = gets.chomp
+    puts "age?"
+    age_input = gets.chomp
+    puts "Reason?"
+    reason_input = gets.chomp
+    @patients.add_new_patient(first_name_input, last_name_input, age_input, reason_input)
+    puts "New Employee List"
+    puts "~"*80
+    @patients.view_patient_list
   end
 
   def create_hospital

@@ -23,4 +23,18 @@ class Patients
     end
   end
 
+  def add_new_patient(first_name, last_name, age, reason)
+    new_id = @patients.count + 1
+    @patients << Patient.new({:id => new_id, :last_name => last_name, :first_name => first_name, :age => age, :reason => reason})
+    save_current_patients_to_file
+  end
+
+  def save_current_patients_to_file
+    CSV.open('patients.csv', 'w') do |csv|
+      @patients.each do |patient|
+        csv << patient.to_a
+      end
+    end
+  end
+
 end

@@ -10,4 +10,8 @@ class Patient
   def display
     "Id: #{@id}, last name: #{@last_name}, first name: #{@first_name}, reason here: #{@reason}"
   end
+
+  def to_a
+    [@id, @last_name, @first_name, @age, @reason]
+  end
 end
