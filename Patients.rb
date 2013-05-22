@@ -1,4 +1,5 @@
-require 'Patient'
+require_relative 'Patient'
+require 'csv'
 
 class Patients
   def initialize
@@ -14,6 +15,12 @@ class Patients
 
   def patient_array_access
     @patients
+  end
+
+  def view_patient_list
+    @patients.each do |patient|
+      p patient.display
+    end
   end
 
 end

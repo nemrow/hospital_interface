@@ -3,7 +3,11 @@ class Patient
     @id = patient[:id]
     @last_name = patient[:last_name]
     @first_name = patient[:first_name]
-    @email = patient[:age]
-    @password = patient[:reason]
+    @age = patient[:age]
+    @reason = patient[:reason]
+  end
+
+  def display
+    "Id: #{@id}, last name: #{@last_name}, first name: #{@first_name}, reason here: #{@reason}"
   end
 end

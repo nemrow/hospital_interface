@@ -1,5 +1,7 @@
-require 'CSV'
-require 'Employee'
+require 'csv'
+# require_relative 'Employee'
+require_relative 'Employee'
+
 
 class Employees
   def initialize
@@ -10,7 +12,6 @@ class Employees
   def init_read_employee_csv(file)
     CSV.foreach(file) do |id, last_name, first_name, email, password, position|
       @employees << Employee.new({:id => id, :last_name => last_name, :first_name => first_name, :email => email, :password => password, :position => position})
-      p [last_name, first_name, email, password, position]
     end
   end
 
@@ -18,7 +19,19 @@ class Employees
     @employees
   end
 
+  def find_employee_by_email(email)
+    @employees.detect do  |obj|
+      obj.email == email
+    end
+  end
+
+  def view_employees_list
+    @employees.each do |employee|
+      puts employee.display
+    end
+  end
+
 end
 
 # test = Employees.new
-# p test.employee_array_access
+# p test.find_employee_by_email("nemrowj@gmail.com")
